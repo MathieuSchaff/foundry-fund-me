@@ -47,8 +47,6 @@ contract FundMe {
          s_funders = new address[](0);
         (bool callSuccess, ) = payable(msg.sender).call{value: address(this).balance}("");
         require(callSuccess, "Call failed");
-
-
    } 
     function withdraw() public onlyOwner {
         for (uint256 funderIndex=0; funderIndex < s_funders.length; funderIndex++){
@@ -64,8 +62,10 @@ contract FundMe {
         // require(sendSuccess, "Send failed");
 
         // call
+
         (bool callSuccess, ) = payable(msg.sender).call{value: address(this).balance}("");
         require(callSuccess, "Call failed");
+
     }
     // Explainer from: https://solidity-by-example.org/fallback/
     // Ether is sent to contract
